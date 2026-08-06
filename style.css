@@ -82,3 +82,18 @@ footer{
     transform:translateY(-3px);
     transition:.3s;
         }
+.market{
+    padding:60px 40px;
+    text-align:center;
+}
+
+.market h2{
+    color:#00d4ff;
+    margin-bottom:30px;
+}
+
+.market-grid{
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
+    gap:20px;
+    }
