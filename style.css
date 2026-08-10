@@ -1,99 +1,445 @@
-body{
-    margin:0;
-    font-family:Arial,sans-serif;
-    background:#0b1220;
-    color:white;
+/* ================================
+   TRADEFLOW - MODERN TRADING UI
+================================ */
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
 }
 
-nav{
-    display:flex;
-    justify-content:space-between;
-    align-items:center;
-    padding:20px 40px;
-    background:#111827;
+body {
+    font-family: Arial, sans-serif;
+    background:
+        radial-gradient(circle at 50% 20%, rgba(0, 212, 255, 0.08), transparent 35%),
+        #050d19;
+    color: #ffffff;
+    min-height: 100vh;
 }
 
-nav h2{
-    color:#00d4ff;
+/* ================================
+   NAVIGATION
+================================ */
+
+nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 14px 25px;
+    background: rgba(8, 18, 34, 0.98);
+    border-bottom: 1px solid rgba(0, 212, 255, 0.15);
+    position: sticky;
+    top: 0;
+    z-index: 1000;
 }
 
-nav ul{
-    list-style:none;
-    display:flex;
-    gap:20px;
-    padding:0;
+nav h2 {
+    color: #00d4ff;
+    font-size: 24px;
+    font-weight: 800;
+    text-shadow: 0 0 15px rgba(0, 212, 255, 0.4);
 }
 
-nav a{
-    color:white;
-    text-decoration:none;
+nav ul {
+    list-style: none;
+    display: flex;
+    gap: 25px;
 }
 
-.hero{
-    text-align:center;
-    padding:80px 20px;
+nav a {
+    color: #dce7f5;
+    text-decoration: none;
+    font-weight: 600;
+    transition: 0.25s;
 }
 
-.hero h1{
-    font-size:42px;
-    color:#00d4ff;
+nav a:hover {
+    color: #00d4ff;
 }
 
-.hero button{
-    padding:12px 25px;
-    margin:10px;
-    border:none;
-    border-radius:8px;
-    cursor:pointer;
+/* ================================
+   HERO
+================================ */
+
+.hero {
+    text-align: center;
+    padding: 75px 20px 55px;
+    max-width: 1000px;
+    margin: auto;
 }
 
-.features{
-    display:grid;
-    grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
-    gap:20px;
-    padding:40px;
+.hero h1 {
+    font-size: clamp(38px, 8vw, 68px);
+    line-height: 1.05;
+    color: #00d4ff;
+    margin-bottom: 25px;
+    font-weight: 900;
+    text-shadow: 0 0 25px rgba(0, 212, 255, 0.25);
 }
 
-.card{
-    background:#1e293b;
-    padding:20px;
-    border-radius:12px;
-    text-align:center;
+.hero p {
+    max-width: 700px;
+    margin: auto;
+    font-size: 19px;
+    line-height: 1.6;
+    color: #b9c7d9;
 }
 
-footer{
-    text-align:center;
-    padding:20px;
-    background:#111827;
-}
-.primary{
-    background:#00d4ff;
-    color:#08111f;
-    font-weight:bold;
+/* ================================
+   BUTTONS
+================================ */
+
+.hero button,
+button {
+    padding: 14px 28px;
+    margin: 15px 8px;
+    border: none;
+    border-radius: 10px;
+    font-size: 16px;
+    font-weight: 700;
+    cursor: pointer;
+    transition: 0.25s;
 }
 
-.secondary{
-    background:transparent;
-    color:#00d4ff;
-    border:2px solid #00d4ff;
+.primary {
+    background: linear-gradient(135deg, #00d4ff, #00a8e8);
+    color: #03111d;
+    box-shadow: 0 0 20px rgba(0, 212, 255, 0.2);
 }
 
-.hero button:hover{
-    transform:translateY(-3px);
-    transition:.3s;
-        }
-.market{
-    padding:60px 40px;
-    text-align:center;
+.secondary {
+    background: transparent;
+    color: #00d4ff;
+    border: 1px solid #00d4ff;
 }
 
-.market h2{
-    color:#00d4ff;
-    margin-bottom:30px;
+.hero button:hover,
+button:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 8px 25px rgba(0, 212, 255, 0.2);
 }
 
-.market-grid{
-    display:grid;
-    grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
-    gap:20px;
+/* ================================
+   DASHBOARD FEATURE CARDS
+================================ */
+
+.features {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 18px;
+    padding: 30px 20px 60px;
+    max-width: 1000px;
+    margin: auto;
+}
+
+.card {
+    background:
+        linear-gradient(
+            145deg,
+            rgba(20, 39, 65, 0.95),
+            rgba(6, 18, 34, 0.98)
+        );
+    padding: 30px 20px;
+    border-radius: 18px;
+    text-align: center;
+    border: 1px solid rgba(0, 212, 255, 0.12);
+    box-shadow:
+        0 10px 35px rgba(0, 0, 0, 0.35),
+        inset 0 0 25px rgba(0, 212, 255, 0.025);
+    transition: 0.3s;
+}
+
+.card:hover {
+    transform: translateY(-5px);
+    border-color: rgba(0, 212, 255, 0.5);
+    box-shadow: 0 12px 35px rgba(0, 212, 255, 0.12);
+}
+
+.card h3 {
+    font-size: 20px;
+    margin-bottom: 12px;
+    color: #ffffff;
+}
+
+.card p {
+    color: #9eafc3;
+    line-height: 1.5;
+}
+
+/* ================================
+   MARKET SECTION
+================================ */
+
+.market {
+    padding: 50px 20px;
+    max-width: 1100px;
+    margin: auto;
+    text-align: center;
+}
+
+.market h2 {
+    color: #00d4ff;
+    font-size: 30px;
+    margin-bottom: 30px;
+}
+
+.market-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 15px;
+}
+
+.market-grid .card {
+    min-height: 140px;
+}
+
+/* ================================
+   TRADING DASHBOARD STYLE
+================================ */
+
+.dashboard {
+    max-width: 1100px;
+    margin: auto;
+    padding: 20px;
+}
+
+.dashboard-nav {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    background: #071426;
+    border-radius: 12px;
+    overflow: hidden;
+    margin-bottom: 15px;
+}
+
+.dashboard-nav div {
+    padding: 18px 10px;
+    text-align: center;
+    color: #cbd7e6;
+    font-weight: 700;
+    border-right: 1px solid rgba(255,255,255,0.05);
+}
+
+.dashboard-nav div.active {
+    background: #20b8c8;
+    color: white;
+}
+
+/* ================================
+   MARKET TICKER
+================================ */
+
+.market-ticker {
+    display: flex;
+    gap: 20px;
+    overflow-x: auto;
+    background: #061120;
+    border-top: 1px solid rgba(0,212,255,0.15);
+    border-bottom: 1px solid rgba(0,212,255,0.15);
+    padding: 12px;
+    white-space: nowrap;
+}
+
+.market-ticker::-webkit-scrollbar {
+    height: 3px;
+}
+
+.market-ticker span {
+    font-size: 13px;
+    color: #8498ae;
+}
+
+.market-ticker .up {
+    color: #00e6a7;
+}
+
+.market-ticker .down {
+    color: #ff5264;
+}
+
+/* ================================
+   SIGNALS
+================================ */
+
+.signals {
+    margin-top: 25px;
+    padding: 20px;
+    background: rgba(5, 17, 31, 0.8);
+    border: 1px solid rgba(0,212,255,0.12);
+    border-radius: 18px;
+}
+
+.signals-title {
+    color: #00d4ff;
+    letter-spacing: 2px;
+    font-size: 13px;
+    font-weight: bold;
+    margin-bottom: 18px;
+}
+
+.signal-card {
+    background: linear-gradient(
+        145deg,
+        #07172a,
+        #06111f
+    );
+    border: 1px solid rgba(0,212,255,0.15);
+    border-radius: 15px;
+    padding: 20px;
+    margin-bottom: 15px;
+}
+
+.signal-top {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.signal-number {
+    background: #e8bd24;
+    color: #08111b;
+    padding: 10px 18px;
+    border-radius: 20px;
+    font-weight: bold;
+}
+
+.signal-down {
+    color: #ff5264;
+    font-size: 30px;
+}
+
+.signal-name {
+    margin: 15px 0;
+    font-weight: bold;
+}
+
+.confidence {
+    display: flex;
+    justify-content: space-between;
+    color: #8798ab;
+    font-size: 12px;
+    margin-bottom: 8px;
+}
+
+.confidence-bar {
+    height: 7px;
+    background: #172b3d;
+    border-radius: 10px;
+    overflow: hidden;
+}
+
+.confidence-bar span {
+    display: block;
+    height: 100%;
+    background: linear-gradient(90deg, #ff3345, #ff6875);
+    border-radius: 10px;
+}
+
+.signal-stats {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 10px;
+    margin-top: 15px;
+}
+
+.signal-stats div {
+    background: #061b2c;
+    padding: 12px 5px;
+    border-radius: 10px;
+    color: #9baec2;
+    font-size: 11px;
+}
+
+.signal-stats strong {
+    display: block;
+    color: white;
+    font-size: 15px;
+    margin-top: 5px;
+}
+
+.signal-button {
+    width: 100%;
+    background: linear-gradient(90deg, #df1f2d, #ff3b45);
+    color: white;
+    border: none;
+    padding: 14px;
+    border-radius: 10px;
+    font-weight: bold;
+    margin-top: 15px;
+}
+
+/* ================================
+   FOOTER
+================================ */
+
+footer {
+    text-align: center;
+    padding: 30px 20px;
+    background: #07111f;
+    color: #718398;
+    margin-top: 50px;
+    border-top: 1px solid rgba(0,212,255,0.1);
+}
+
+/* ================================
+   MOBILE
+================================ */
+
+@media (max-width: 700px) {
+
+    nav {
+        padding: 14px 15px;
     }
+
+    nav ul {
+        gap: 14px;
+        overflow-x: auto;
+    }
+
+    nav a {
+        font-size: 13px;
+        white-space: nowrap;
+    }
+
+    nav h2 {
+        font-size: 20px;
+    }
+
+    .hero {
+        padding: 60px 18px 40px;
+    }
+
+    .hero h1 {
+        font-size: 42px;
+    }
+
+    .hero p {
+        font-size: 16px;
+    }
+
+    .features {
+        grid-template-columns: 1fr;
+        padding: 20px 16px;
+    }
+
+    .market-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .dashboard {
+        padding: 12px;
+    }
+
+    .dashboard-nav div {
+        font-size: 12px;
+        padding: 15px 5px;
+    }
+
+    .signal-stats {
+        gap: 6px;
+    }
+
+    .signal-card {
+        padding: 16px;
+    }
+}
