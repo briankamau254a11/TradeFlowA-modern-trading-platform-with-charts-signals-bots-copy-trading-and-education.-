@@ -1,445 +1,839 @@
-/* ================================
-   TRADEFLOW - MODERN TRADING UI
-================================ */
-
 * {
     box-sizing: border-box;
     margin: 0;
     padding: 0;
 }
 
-body {
-    font-family: Arial, sans-serif;
-    background:
-        radial-gradient(circle at 50% 20%, rgba(0, 212, 255, 0.08), transparent 35%),
-        #050d19;
-    color: #ffffff;
-    min-height: 100vh;
+:root {
+    --bg: #050b14;
+    --panel: #0a1422;
+    --panel2: #0d1a2b;
+    --border: rgba(255,255,255,.07);
+    --text: #f5f8fc;
+    --muted: #8090a5;
+    --cyan: #16d9ff;
+    --green: #13d99b;
+    --red: #ff5267;
+    --purple: #9b7cff;
+    --orange: #ffad4d;
 }
 
-/* ================================
-   NAVIGATION
-================================ */
+html {
+    scroll-behavior: smooth;
+}
 
-nav {
+body {
+    font-family: Arial, Helvetica, sans-serif;
+    background:
+        radial-gradient(
+            circle at 50% -10%,
+            rgba(22,217,255,.12),
+            transparent 35%
+        ),
+        var(--bg);
+    color: var(--text);
+    min-height: 100vh;
+    padding-bottom: 85px;
+}
+
+button {
+    font-family: inherit;
+    cursor: pointer;
+}
+
+
+/* ================= HEADER ================= */
+
+.topbar {
+    height: 70px;
+    padding: 0 5%;
     display: flex;
-    justify-content: space-between;
     align-items: center;
-    padding: 14px 25px;
-    background: rgba(8, 18, 34, 0.98);
-    border-bottom: 1px solid rgba(0, 212, 255, 0.15);
+    justify-content: space-between;
+    background: rgba(5,11,20,.92);
+    backdrop-filter: blur(15px);
+    border-bottom: 1px solid var(--border);
     position: sticky;
     top: 0;
-    z-index: 1000;
+    z-index: 100;
 }
 
-nav h2 {
-    color: #00d4ff;
-    font-size: 24px;
-    font-weight: 800;
-    text-shadow: 0 0 15px rgba(0, 212, 255, 0.4);
-}
-
-nav ul {
-    list-style: none;
+.brand {
     display: flex;
-    gap: 25px;
+    align-items: center;
+    gap: 11px;
 }
 
-nav a {
-    color: #dce7f5;
-    text-decoration: none;
-    font-weight: 600;
-    transition: 0.25s;
-}
-
-nav a:hover {
-    color: #00d4ff;
-}
-
-/* ================================
-   HERO
-================================ */
-
-.hero {
-    text-align: center;
-    padding: 75px 20px 55px;
-    max-width: 1000px;
-    margin: auto;
-}
-
-.hero h1 {
-    font-size: clamp(38px, 8vw, 68px);
-    line-height: 1.05;
-    color: #00d4ff;
-    margin-bottom: 25px;
-    font-weight: 900;
-    text-shadow: 0 0 25px rgba(0, 212, 255, 0.25);
-}
-
-.hero p {
-    max-width: 700px;
-    margin: auto;
-    font-size: 19px;
-    line-height: 1.6;
-    color: #b9c7d9;
-}
-
-/* ================================
-   BUTTONS
-================================ */
-
-.hero button,
-button {
-    padding: 14px 28px;
-    margin: 15px 8px;
-    border: none;
-    border-radius: 10px;
-    font-size: 16px;
-    font-weight: 700;
-    cursor: pointer;
-    transition: 0.25s;
-}
-
-.primary {
-    background: linear-gradient(135deg, #00d4ff, #00a8e8);
-    color: #03111d;
-    box-shadow: 0 0 20px rgba(0, 212, 255, 0.2);
-}
-
-.secondary {
-    background: transparent;
-    color: #00d4ff;
-    border: 1px solid #00d4ff;
-}
-
-.hero button:hover,
-button:hover {
-    transform: translateY(-3px);
-    box-shadow: 0 8px 25px rgba(0, 212, 255, 0.2);
-}
-
-/* ================================
-   DASHBOARD FEATURE CARDS
-================================ */
-
-.features {
+.brand-icon {
+    width: 40px;
+    height: 40px;
     display: grid;
-    grid-template-columns: repeat(2, minmax(0, 1fr));
-    gap: 18px;
-    padding: 30px 20px 60px;
-    max-width: 1000px;
+    place-items: center;
+    border-radius: 11px;
+    background: linear-gradient(135deg,#16d9ff,#087bff);
+    color: #00131d;
+    font-weight: 900;
+    box-shadow: 0 0 20px rgba(22,217,255,.2);
+}
+
+.brand strong {
+    display: block;
+    font-size: 17px;
+}
+
+.brand small {
+    color: var(--muted);
+    font-size: 10px;
+}
+
+.top-actions {
+    display: flex;
+    gap: 10px;
+}
+
+.icon-btn,
+.avatar {
+    border: 1px solid var(--border);
+    background: var(--panel);
+    color: white;
+    width: 40px;
+    height: 40px;
+    border-radius: 12px;
+}
+
+.avatar {
+    background: #16314b;
+    color: var(--cyan);
+    font-weight: bold;
+}
+
+
+/* ================= APP ================= */
+
+.app {
+    width: min(1050px, 94%);
     margin: auto;
 }
 
-.card {
+
+/* ================= PORTFOLIO ================= */
+
+.portfolio {
+    margin-top: 22px;
+    padding: 25px;
     background:
         linear-gradient(
             145deg,
-            rgba(20, 39, 65, 0.95),
-            rgba(6, 18, 34, 0.98)
+            rgba(15,35,56,.98),
+            rgba(7,17,29,.98)
         );
-    padding: 30px 20px;
-    border-radius: 18px;
-    text-align: center;
-    border: 1px solid rgba(0, 212, 255, 0.12);
-    box-shadow:
-        0 10px 35px rgba(0, 0, 0, 0.35),
-        inset 0 0 25px rgba(0, 212, 255, 0.025);
-    transition: 0.3s;
+    border: 1px solid var(--border);
+    border-radius: 20px;
+    box-shadow: 0 20px 50px rgba(0,0,0,.25);
 }
 
-.card:hover {
-    transform: translateY(-5px);
-    border-color: rgba(0, 212, 255, 0.5);
-    box-shadow: 0 12px 35px rgba(0, 212, 255, 0.12);
+.portfolio-top {
+    display: flex;
+    justify-content: space-between;
+    gap: 20px;
 }
 
-.card h3 {
-    font-size: 20px;
-    margin-bottom: 12px;
-    color: #ffffff;
+.label {
+    display: block;
+    color: var(--muted);
+    font-size: 10px;
+    letter-spacing: 1.5px;
+    margin-bottom: 8px;
 }
 
-.card p {
-    color: #9eafc3;
-    line-height: 1.5;
+.portfolio h1 {
+    font-size: 34px;
+    margin-bottom: 6px;
 }
 
-/* ================================
-   MARKET SECTION
-================================ */
-
-.market {
-    padding: 50px 20px;
-    max-width: 1100px;
-    margin: auto;
-    text-align: center;
+.profit,
+.green {
+    color: var(--green);
 }
 
-.market h2 {
-    color: #00d4ff;
-    font-size: 30px;
-    margin-bottom: 30px;
+.red {
+    color: var(--red);
 }
 
-.market-grid {
+.balance-actions {
+    display: flex;
+    gap: 8px;
+    align-items: center;
+}
+
+.balance-actions button {
+    border: 0;
+    padding: 11px 15px;
+    border-radius: 10px;
+    background: var(--cyan);
+    color: #00131c;
+    font-weight: bold;
+}
+
+.balance-actions .withdraw {
+    background: transparent;
+    color: var(--cyan);
+    border: 1px solid rgba(22,217,255,.3);
+}
+
+.portfolio-stats {
     display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 15px;
+    grid-template-columns: repeat(3,1fr);
+    gap: 10px;
+    margin-top: 22px;
 }
 
-.market-grid .card {
-    min-height: 140px;
+.portfolio-stats div {
+    background: rgba(0,0,0,.18);
+    padding: 13px;
+    border-radius: 11px;
 }
 
-/* ================================
-   TRADING DASHBOARD STYLE
-================================ */
-
-.dashboard {
-    max-width: 1100px;
-    margin: auto;
-    padding: 20px;
+.portfolio-stats span {
+    display: block;
+    color: var(--muted);
+    font-size: 10px;
+    margin-bottom: 5px;
 }
 
-.dashboard-nav {
+.portfolio-stats strong {
+    font-size: 14px;
+}
+
+
+/* ================= TICKER ================= */
+
+.ticker {
+    display: flex;
+    gap: 25px;
+    overflow-x: auto;
+    margin-top: 12px;
+    padding: 13px;
+    background: #07111e;
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    scrollbar-width: none;
+}
+
+.ticker::-webkit-scrollbar {
+    display: none;
+}
+
+.ticker div {
+    white-space: nowrap;
+    font-size: 12px;
+    color: #c6d2df;
+}
+
+.ticker b {
+    margin-left: 5px;
+}
+
+
+/* ================= TABS ================= */
+
+.dashboard-tabs {
     display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    background: #071426;
+    grid-template-columns: repeat(4,1fr);
+    margin-top: 15px;
+    background: var(--panel);
+    border: 1px solid var(--border);
     border-radius: 12px;
     overflow: hidden;
-    margin-bottom: 15px;
 }
 
-.dashboard-nav div {
-    padding: 18px 10px;
-    text-align: center;
-    color: #cbd7e6;
-    font-weight: 700;
-    border-right: 1px solid rgba(255,255,255,0.05);
-}
-
-.dashboard-nav div.active {
-    background: #20b8c8;
-    color: white;
-}
-
-/* ================================
-   MARKET TICKER
-================================ */
-
-.market-ticker {
-    display: flex;
-    gap: 20px;
-    overflow-x: auto;
-    background: #061120;
-    border-top: 1px solid rgba(0,212,255,0.15);
-    border-bottom: 1px solid rgba(0,212,255,0.15);
-    padding: 12px;
-    white-space: nowrap;
-}
-
-.market-ticker::-webkit-scrollbar {
-    height: 3px;
-}
-
-.market-ticker span {
-    font-size: 13px;
-    color: #8498ae;
-}
-
-.market-ticker .up {
-    color: #00e6a7;
-}
-
-.market-ticker .down {
-    color: #ff5264;
-}
-
-/* ================================
-   SIGNALS
-================================ */
-
-.signals {
-    margin-top: 25px;
-    padding: 20px;
-    background: rgba(5, 17, 31, 0.8);
-    border: 1px solid rgba(0,212,255,0.12);
-    border-radius: 18px;
-}
-
-.signals-title {
-    color: #00d4ff;
-    letter-spacing: 2px;
-    font-size: 13px;
+.dashboard-tabs button {
+    border: 0;
+    border-right: 1px solid var(--border);
+    padding: 14px;
+    background: transparent;
+    color: var(--muted);
     font-weight: bold;
-    margin-bottom: 18px;
+}
+
+.dashboard-tabs button.active {
+    background: var(--cyan);
+    color: #00131c;
+}
+
+
+/* ================= SECTIONS ================= */
+
+.section {
+    margin-top: 30px;
+}
+
+.section-title {
+    display: flex;
+    justify-content: space-between;
+    align-items: end;
+    margin-bottom: 14px;
+}
+
+.section-title > div > span,
+.live-title {
+    color: var(--cyan);
+    font-size: 10px;
+    font-weight: bold;
+    letter-spacing: 1.5px;
+}
+
+.section-title h2 {
+    font-size: 22px;
+    margin-top: 4px;
+}
+
+.updated {
+    color: var(--muted);
+    font-size: 11px;
+}
+
+
+/* ================= QUICK ACTIONS ================= */
+
+.quick-grid {
+    display: grid;
+    grid-template-columns: repeat(4,1fr);
+    gap: 12px;
+}
+
+.tool-card {
+    text-align: left;
+    padding: 18px;
+    border: 1px solid var(--border);
+    border-radius: 16px;
+    background: linear-gradient(145deg,#0d1b2d,#08121f);
+    color: white;
+    transition: .2s;
+}
+
+.tool-card:hover {
+    transform: translateY(-3px);
+    border-color: rgba(22,217,255,.3);
+}
+
+.tool-icon {
+    width: 42px;
+    height: 42px;
+    display: grid;
+    place-items: center;
+    border-radius: 12px;
+    margin-bottom: 15px;
+    background: rgba(22,217,255,.1);
+}
+
+.tool-icon.green {
+    background: rgba(19,217,155,.1);
+}
+
+.tool-icon.purple {
+    background: rgba(155,124,255,.1);
+}
+
+.tool-icon.orange {
+    background: rgba(255,173,77,.1);
+}
+
+.tool-card strong,
+.tool-card small {
+    display: block;
+}
+
+.tool-card small {
+    margin-top: 6px;
+    color: var(--muted);
+    line-height: 1.4;
+}
+
+
+/* ================= MARKETS ================= */
+
+.market-list {
+    display: grid;
+    gap: 10px;
+}
+
+.market-card {
+    display: grid;
+    grid-template-columns: 1.5fr 1fr 1fr;
+    align-items: center;
+    gap: 15px;
+    padding: 16px;
+    background: var(--panel);
+    border: 1px solid var(--border);
+    border-radius: 15px;
+}
+
+.coin {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+.coin-icon {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    display: grid;
+    place-items: center;
+    font-weight: bold;
+}
+
+.bitcoin {
+    background: #3b2a12;
+    color: #ffad32;
+}
+
+.euro {
+    background: #15233d;
+    color: #719dff;
+}
+
+.gold {
+    background: #3a3013;
+    color: #f2ca50;
+}
+
+.coin strong,
+.coin small {
+    display: block;
+}
+
+.coin small {
+    color: var(--muted);
+    font-size: 10px;
+    margin-top: 3px;
+}
+
+.mini-chart {
+    color: var(--green);
+    font-size: 20px;
+    letter-spacing: 2px;
+}
+
+.down-chart {
+    color: var(--red);
+}
+
+.price {
+    text-align: right;
+}
+
+.price strong,
+.price span {
+    display: block;
+}
+
+.price span {
+    margin-top: 5px;
+    font-size: 11px;
+}
+
+
+/* ================= SIGNALS ================= */
+
+.live-title {
+    display: flex;
+    align-items: center;
+    gap: 7px;
+}
+
+.live-title i {
+    width: 7px;
+    height: 7px;
+    background: var(--green);
+    border-radius: 50%;
+    box-shadow: 0 0 10px var(--green);
 }
 
 .signal-card {
-    background: linear-gradient(
-        145deg,
-        #07172a,
-        #06111f
-    );
-    border: 1px solid rgba(0,212,255,0.15);
-    border-radius: 15px;
     padding: 20px;
-    margin-bottom: 15px;
+    margin-bottom: 12px;
+    border-radius: 17px;
+    background:
+        linear-gradient(
+            145deg,
+            #0d1c2d,
+            #07121f
+        );
+    border: 1px solid var(--border);
 }
 
-.signal-top {
+.signal-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.signal-market {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+.signal-icon {
+    width: 44px;
+    height: 44px;
+    display: grid;
+    place-items: center;
+    border-radius: 12px;
+    background: #152b40;
+    color: var(--cyan);
+    font-size: 11px;
+    font-weight: bold;
+}
+
+.signal-market strong,
+.signal-market small {
+    display: block;
+}
+
+.signal-market small {
+    color: var(--muted);
+    margin-top: 4px;
+    font-size: 10px;
+}
+
+.signal-badge {
+    padding: 7px 12px;
+    border-radius: 8px;
+    font-size: 10px;
+    font-weight: bold;
+}
+
+.signal-badge.sell {
+    background: rgba(255,82,103,.1);
+    color: var(--red);
+}
+
+.signal-badge.buy {
+    background: rgba(19,217,155,.1);
+    color: var(--green);
+}
+
+.signal-main {
+    display: flex;
+    align-items: end;
+    justify-content: space-between;
+    margin: 20px 0 10px;
+}
+
+.confidence-number {
+    display: block;
+    font-size: 28px;
+}
+
+.signal-arrow {
+    font-size: 34px;
+    color: var(--red);
+}
+
+.buy-arrow {
+    color: var(--green);
+}
+
+.confidence-track {
+    height: 7px;
+    background: #162535;
+    border-radius: 10px;
+    overflow: hidden;
+}
+
+.confidence-track span {
+    display: block;
+    height: 100%;
+    background: linear-gradient(90deg,#ff334c,#ff7887);
+    border-radius: 10px;
+}
+
+.confidence-track .buy-track {
+    background: linear-gradient(90deg,#0cb981,#21e6ab);
+}
+
+.signal-details {
+    display: grid;
+    grid-template-columns: repeat(3,1fr);
+    gap: 8px;
+    margin-top: 14px;
+}
+
+.signal-details div {
+    background: rgba(0,0,0,.2);
+    padding: 10px;
+    border-radius: 9px;
+}
+
+.signal-details span,
+.signal-details strong {
+    display: block;
+}
+
+.signal-details span {
+    color: var(--muted);
+    font-size: 9px;
+}
+
+.signal-details strong {
+    margin-top: 4px;
+    font-size: 12px;
+}
+
+.signal-action {
+    width: 100%;
+    margin-top: 14px;
+    padding: 13px;
+    border: 1px solid rgba(255,82,103,.25);
+    border-radius: 10px;
+    background: rgba(255,82,103,.08);
+    color: var(--red);
+    font-weight: bold;
+}
+
+.buy-action {
+    border-color: rgba(19,217,155,.25);
+    background: rgba(19,217,155,.08);
+    color: var(--green);
+}
+
+
+/* ================= BOTS ================= */
+
+.bot-grid {
+    display: grid;
+    grid-template-columns: repeat(2,1fr);
+    gap: 12px;
+}
+
+.bot-card {
+    padding: 20px;
+    background: var(--panel);
+    border: 1px solid var(--border);
+    border-radius: 17px;
+}
+
+.bot-top {
     display: flex;
     justify-content: space-between;
     align-items: center;
 }
 
-.signal-number {
-    background: #e8bd24;
-    color: #08111b;
-    padding: 10px 18px;
-    border-radius: 20px;
-    font-weight: bold;
-}
-
-.signal-down {
-    color: #ff5264;
-    font-size: 30px;
-}
-
-.signal-name {
-    margin: 15px 0;
-    font-weight: bold;
-}
-
-.confidence {
-    display: flex;
-    justify-content: space-between;
-    color: #8798ab;
-    font-size: 12px;
-    margin-bottom: 8px;
-}
-
-.confidence-bar {
-    height: 7px;
-    background: #172b3d;
-    border-radius: 10px;
-    overflow: hidden;
-}
-
-.confidence-bar span {
-    display: block;
-    height: 100%;
-    background: linear-gradient(90deg, #ff3345, #ff6875);
-    border-radius: 10px;
-}
-
-.signal-stats {
+.bot-icon {
+    width: 45px;
+    height: 45px;
     display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 10px;
+    place-items: center;
+    background: #102338;
+    border-radius: 13px;
+}
+
+.online {
+    color: var(--green);
+    font-size: 9px;
+}
+
+.premium {
+    color: #e7bb45;
+    font-size: 9px;
+}
+
+.bot-card h3 {
+    margin-top: 18px;
+}
+
+.bot-card p {
+    color: var(--muted);
+    font-size: 12px;
+    line-height: 1.5;
+    margin-top: 7px;
+}
+
+.bot-stats {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 8px;
     margin-top: 15px;
 }
 
-.signal-stats div {
-    background: #061b2c;
-    padding: 12px 5px;
-    border-radius: 10px;
-    color: #9baec2;
-    font-size: 11px;
+.bot-stats div {
+    background: rgba(0,0,0,.18);
+    padding: 10px;
+    border-radius: 9px;
 }
 
-.signal-stats strong {
+.bot-stats span,
+.bot-stats strong {
     display: block;
-    color: white;
-    font-size: 15px;
-    margin-top: 5px;
 }
 
-.signal-button {
+.bot-stats span {
+    color: var(--muted);
+    font-size: 9px;
+}
+
+.bot-stats strong {
+    margin-top: 4px;
+}
+
+.bot-card > button {
     width: 100%;
-    background: linear-gradient(90deg, #df1f2d, #ff3b45);
-    color: white;
-    border: none;
-    padding: 14px;
-    border-radius: 10px;
+    margin-top: 14px;
+    padding: 12px;
+    border: 0;
+    border-radius: 9px;
+    background: #12304a;
+    color: var(--cyan);
     font-weight: bold;
-    margin-top: 15px;
 }
 
-/* ================================
-   FOOTER
-================================ */
 
-footer {
-    text-align: center;
-    padding: 30px 20px;
-    background: #07111f;
-    color: #718398;
-    margin-top: 50px;
-    border-top: 1px solid rgba(0,212,255,0.1);
+/* ================= RISK ================= */
+
+.risk-notice {
+    margin: 35px 0;
+    padding: 18px;
+    border-radius: 14px;
+    background: rgba(255,173,77,.05);
+    border: 1px solid rgba(255,173,77,.15);
 }
 
-/* ================================
-   MOBILE
-================================ */
+.risk-notice strong {
+    color: var(--orange);
+}
 
-@media (max-width: 700px) {
+.risk-notice p {
+    margin-top: 7px;
+    color: var(--muted);
+    font-size: 11px;
+    line-height: 1.6;
+}
 
-    nav {
-        padding: 14px 15px;
+
+/* ================= BOTTOM NAV ================= */
+
+.bottom-nav {
+    position: fixed;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    height: 70px;
+    background: rgba(6,13,23,.96);
+    backdrop-filter: blur(15px);
+    border-top: 1px solid var(--border);
+    display: grid;
+    grid-template-columns: repeat(5,1fr);
+    z-index: 500;
+}
+
+.bottom-nav button {
+    border: 0;
+    background: transparent;
+    color: var(--muted);
+    font-size: 10px;
+}
+
+.bottom-nav span {
+    display: block;
+    font-size: 19px;
+    margin-bottom: 4px;
+}
+
+.bottom-nav button.active {
+    color: var(--cyan);
+}
+
+
+/* ================= MOBILE ================= */
+
+@media(max-width:700px) {
+
+    body {
+        padding-bottom: 80px;
     }
 
-    nav ul {
-        gap: 14px;
-        overflow-x: auto;
+    .app {
+        width: 94%;
     }
 
-    nav a {
-        font-size: 13px;
-        white-space: nowrap;
+    .topbar {
+        padding: 0 3%;
     }
 
-    nav h2 {
-        font-size: 20px;
+    .portfolio {
+        padding: 18px;
     }
 
-    .hero {
-        padding: 60px 18px 40px;
+    .portfolio-top {
+        display: block;
     }
 
-    .hero h1 {
-        font-size: 42px;
+    .portfolio h1 {
+        font-size: 30px;
     }
 
-    .hero p {
-        font-size: 16px;
+    .balance-actions {
+        margin-top: 15px;
     }
 
-    .features {
-        grid-template-columns: 1fr;
-        padding: 20px 16px;
+    .balance-actions button {
+        flex: 1;
     }
 
-    .market-grid {
-        grid-template-columns: 1fr;
+    .portfolio-stats {
+        margin-top: 15px;
     }
 
-    .dashboard {
-        padding: 12px;
-    }
-
-    .dashboard-nav div {
+    .portfolio-stats strong {
         font-size: 12px;
-        padding: 15px 5px;
     }
 
-    .signal-stats {
-        gap: 6px;
+    .dashboard-tabs {
+        grid-template-columns: repeat(4,1fr);
     }
 
-    .signal-card {
-        padding: 16px;
+    .dashboard-tabs button {
+        padding: 12px 4px;
+        font-size: 10px;
     }
+
+    .quick-grid {
+        grid-template-columns: repeat(2,1fr);
+    }
+
+    .tool-card {
+        padding: 15px;
+    }
+
+    .market-card {
+        grid-template-columns: 1fr auto;
+    }
+
+    .mini-chart {
+        display: none;
+    }
+
+    .price {
+        text-align: right;
+    }
+
+    .bot-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .section-title h2 {
+        font-size: 19px;
+    }
+
 }
+
+@media(min-width:701px) {
+
+    .bottom-nav {
+        display: none;
+    }
+
+       }
