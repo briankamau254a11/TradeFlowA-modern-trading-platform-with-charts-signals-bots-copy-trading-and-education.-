@@ -2,666 +2,895 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <meta
-        name="viewport"
-        content="width=device-width, initial-scale=1.0"
-    >
-
-    <title>TradeFlow - Trading Platform</title>
+    <title>TradeFlow | Trading Dashboard</title>
 
     <link rel="stylesheet" href="style.css">
 </head>
 
 <body>
 
-<!-- =========================
-     NAVIGATION
-========================= -->
+<!-- ================= HEADER ================= -->
 
-<nav>
+<header class="topbar">
 
-    <h2>TradeFlow</h2>
-
-    <ul>
-        <li><a href="#dashboard">Dashboard</a></li>
-        <li><a href="#markets">Markets</a></li>
-        <li><a href="#signals">Signals</a></li>
-        <li><a href="#bots">Bots</a></li>
-        <li><a href="#education">Education</a></li>
-    </ul>
-
-</nav>
-
-
-<!-- =========================
-     HERO
-========================= -->
-
-<section class="hero">
-
-    <h1>
-        Trade Smarter.<br>
-        Grow Faster.
-    </h1>
-
-    <p>
-        Professional trading tools, market analysis,
-        trading signals and automated strategies
-        in one platform.
-    </p>
-
-    <div>
-
-        <button
-            class="primary"
-            onclick="scrollToDashboard()"
-        >
-            Start Trading
-        </button>
-
-        <button
-            class="secondary"
-            onclick="scrollToMarkets()"
-        >
-            Explore Markets
-        </button>
-
+    <div class="brand">
+        <div class="brand-icon">TF</div>
+        <div>
+            <strong>TradeFlow</strong>
+            <small>Trading Platform</small>
+        </div>
     </div>
 
-</section>
-
-
-<!-- =========================
-     DASHBOARD
-========================= -->
-
-<section
-    class="dashboard"
-    id="dashboard"
->
-
-    <!-- Dashboard navigation -->
-
-    <div class="dashboard-nav">
-
-        <div class="active">
-            🏠 Dashboard
-        </div>
-
-        <div>
-            ⚙️ Bot Builder
-        </div>
-
-        <div>
-            🤖 Free Bots
-        </div>
-
+    <div class="top-actions">
+        <button class="icon-btn">🔔</button>
+        <button class="avatar">U</button>
     </div>
 
+</header>
 
-    <!-- Market ticker -->
 
-    <div class="market-ticker">
+<!-- ================= MAIN ================= -->
 
-        <span>
+<main class="app">
+
+
+    <!-- ================= PORTFOLIO ================= -->
+
+    <section class="portfolio">
+
+        <div class="portfolio-top">
+
+            <div>
+                <span class="label">AVAILABLE BALANCE</span>
+
+                <h1>$10,250.00</h1>
+
+                <span class="profit">
+                    ▲ +$425.80 today
+                </span>
+            </div>
+
+            <div class="balance-actions">
+
+                <button onclick="showMessage('Deposit feature coming soon')">
+                    + Deposit
+                </button>
+
+                <button
+                    class="withdraw"
+                    onclick="showMessage('Withdrawal feature coming soon')"
+                >
+                    Withdraw
+                </button>
+
+            </div>
+
+        </div>
+
+        <div class="portfolio-stats">
+
+            <div>
+                <span>Total Profit</span>
+                <strong>+$1,845.20</strong>
+            </div>
+
+            <div>
+                <span>Win Rate</span>
+                <strong>78.4%</strong>
+            </div>
+
+            <div>
+                <span>Active Trades</span>
+                <strong>6</strong>
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- ================= TICKER ================= -->
+
+    <div class="ticker">
+
+        <div>
             BTC/USD
-            <strong class="up">▲ 2.41%</strong>
-        </span>
+            <b class="green">+2.41%</b>
+        </div>
 
-        <span>
+        <div>
             EUR/USD
-            <strong class="down">▼ 0.52%</strong>
-        </span>
+            <b class="red">-0.52%</b>
+        </div>
 
-        <span>
+        <div>
             GBP/USD
-            <strong class="up">▲ 0.84%</strong>
-        </span>
+            <b class="green">+0.84%</b>
+        </div>
 
-        <span>
-            GOLD
-            <strong class="up">▲ 1.12%</strong>
-        </span>
+        <div>
+            XAU/USD
+            <b class="green">+1.12%</b>
+        </div>
 
-        <span>
+        <div>
             NASDAQ
-            <strong class="down">▼ 0.31%</strong>
-        </span>
-
-    </div>
-
-
-    <!-- Dashboard cards -->
-
-    <div class="features">
-
-        <div class="card">
-
-            <div style="font-size:42px;">
-                📁
-            </div>
-
-            <h3>
-                Load Bot
-            </h3>
-
-            <p>
-                Load and manage your
-                automated trading strategies.
-            </p>
-
-        </div>
-
-
-        <div
-            class="card"
-            id="bots"
-        >
-
-            <div style="font-size:42px;">
-                🤖
-            </div>
-
-            <h3>
-                Premium Bots
-            </h3>
-
-            <p>
-                Explore advanced automated
-                trading strategies.
-            </p>
-
-        </div>
-
-
-        <div class="card">
-
-            <div style="font-size:42px;">
-                🚀
-            </div>
-
-            <h3>
-                Speed Bot
-            </h3>
-
-            <p>
-                Fast strategy execution
-                and market monitoring.
-            </p>
-
-        </div>
-
-
-        <div class="card">
-
-            <div style="font-size:42px;">
-                👆
-            </div>
-
-            <h3>
-                Manual Trading
-            </h3>
-
-            <p>
-                Analyze markets and
-                trade manually.
-            </p>
-
+            <b class="red">-0.31%</b>
         </div>
 
     </div>
 
 
-    <!-- =========================
-         LIVE SIGNALS
-    ========================= -->
+    <!-- ================= DASHBOARD NAV ================= -->
 
-    <div
-        class="signals"
+    <div class="dashboard-tabs">
+
+        <button class="active">
+            Dashboard
+        </button>
+
+        <button onclick="scrollToSection('markets')">
+            Markets
+        </button>
+
+        <button onclick="scrollToSection('signals')">
+            Signals
+        </button>
+
+        <button onclick="scrollToSection('bots')">
+            Bots
+        </button>
+
+    </div>
+
+
+    <!-- ================= QUICK ACTIONS ================= -->
+
+    <section class="section">
+
+        <div class="section-title">
+
+            <div>
+                <span>QUICK ACTIONS</span>
+                <h2>TradeFlow Tools</h2>
+            </div>
+
+        </div>
+
+
+        <div class="quick-grid">
+
+            <button class="tool-card"
+                onclick="showMessage('Bot Builder opened')">
+
+                <div class="tool-icon blue">
+                    🤖
+                </div>
+
+                <strong>Bot Builder</strong>
+
+                <small>
+                    Create trading strategies
+                </small>
+
+            </button>
+
+
+            <button class="tool-card"
+                onclick="showMessage('Manual trading opened')">
+
+                <div class="tool-icon green">
+                    ⚡
+                </div>
+
+                <strong>Manual Trade</strong>
+
+                <small>
+                    Open a trading position
+                </small>
+
+            </button>
+
+
+            <button class="tool-card"
+                onclick="scrollToSection('signals')">
+
+                <div class="tool-icon purple">
+                    📡
+                </div>
+
+                <strong>Signals</strong>
+
+                <small>
+                    View market signals
+                </small>
+
+            </button>
+
+
+            <button class="tool-card"
+                onclick="scrollToSection('markets')">
+
+                <div class="tool-icon orange">
+                    📊
+                </div>
+
+                <strong>Markets</strong>
+
+                <small>
+                    Explore markets
+                </small>
+
+            </button>
+
+        </div>
+
+    </section>
+
+
+    <!-- ================= MARKETS ================= -->
+
+    <section
+        class="section"
+        id="markets"
+    >
+
+        <div class="section-title">
+
+            <div>
+                <span>MARKET OVERVIEW</span>
+                <h2>Popular Markets</h2>
+            </div>
+
+            <button class="view-all">
+                View all
+            </button>
+
+        </div>
+
+
+        <div class="market-list">
+
+
+            <!-- BTC -->
+
+            <div class="market-card">
+
+                <div class="coin">
+
+                    <div class="coin-icon bitcoin">
+                        ₿
+                    </div>
+
+                    <div>
+                        <strong>BTC/USD</strong>
+                        <small>Bitcoin</small>
+                    </div>
+
+                </div>
+
+
+                <div class="mini-chart">
+                    ╱╲_╱╲╱╲__
+                </div>
+
+
+                <div class="price">
+
+                    <strong>
+                        $67,842.30
+                    </strong>
+
+                    <span class="green">
+                        +2.41%
+                    </span>
+
+                </div>
+
+            </div>
+
+
+            <!-- EUR -->
+
+            <div class="market-card">
+
+                <div class="coin">
+
+                    <div class="coin-icon euro">
+                        €
+                    </div>
+
+                    <div>
+                        <strong>EUR/USD</strong>
+                        <small>Euro / Dollar</small>
+                    </div>
+
+                </div>
+
+
+                <div class="mini-chart down-chart">
+                    ╲╱╲__╱╲_
+                </div>
+
+
+                <div class="price">
+
+                    <strong>
+                        1.16842
+                    </strong>
+
+                    <span class="red">
+                        -0.52%
+                    </span>
+
+                </div>
+
+            </div>
+
+
+            <!-- GOLD -->
+
+            <div class="market-card">
+
+                <div class="coin">
+
+                    <div class="coin-icon gold">
+                        Au
+                    </div>
+
+                    <div>
+                        <strong>XAU/USD</strong>
+                        <small>Gold</small>
+                    </div>
+
+                </div>
+
+
+                <div class="mini-chart">
+                    ╱_╱╲╱╲__
+                </div>
+
+
+                <div class="price">
+
+                    <strong>
+                        $3,421.80
+                    </strong>
+
+                    <span class="green">
+                        +1.12%
+                    </span>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- ================= SIGNALS ================= -->
+
+    <section
+        class="section"
         id="signals"
     >
 
-        <div class="signals-title">
-            ● LIVE TRADING SIGNALS
+        <div class="section-title">
+
+            <div>
+
+                <div class="live-title">
+                    <i></i>
+                    LIVE SIGNALS
+                </div>
+
+                <h2>Trading Signals</h2>
+
+            </div>
+
+            <span class="updated">
+                Updated now
+            </span>
+
         </div>
 
 
         <!-- SIGNAL 1 -->
 
-        <div class="signal-card">
+        <article class="signal-card">
 
-            <div class="signal-top">
+            <div class="signal-header">
 
-                <span class="signal-number">
-                    #1
-                </span>
+                <div class="signal-market">
 
-                <span class="signal-down">
-                    ▼
-                </span>
+                    <div class="signal-icon">
+                        V50
+                    </div>
 
-            </div>
+                    <div>
+                        <strong>
+                            Volatility 50 (1s)
+                        </strong>
 
+                        <small>
+                            Synthetic Index
+                        </small>
+                    </div>
 
-            <div class="signal-name">
-                Volatility 50 (1s)
-            </div>
+                </div>
 
-
-            <div class="confidence">
-
-                <span>
-                    CONFIDENCE
-                </span>
-
-                <strong>
-                    50.1%
-                </strong>
-
-            </div>
-
-
-            <div class="confidence-bar">
-
-                <span style="width:50.1%;">
+                <span class="signal-badge sell">
+                    SELL
                 </span>
 
             </div>
 
 
-            <div class="signal-stats">
+            <div class="signal-main">
 
                 <div>
-                    ODD %
-                    <strong>59.2%</strong>
+
+                    <span class="label">
+                        CONFIDENCE
+                    </span>
+
+                    <strong class="confidence-number">
+                        82.6%
+                    </strong>
+
+                </div>
+
+
+                <div class="signal-arrow">
+                    ↓
+                </div>
+
+            </div>
+
+
+            <div class="confidence-track">
+
+                <span style="width:82.6%"></span>
+
+            </div>
+
+
+            <div class="signal-details">
+
+                <div>
+                    <span>Entry</span>
+                    <strong>Sell</strong>
                 </div>
 
                 <div>
-                    MOST
-                    <strong>7</strong>
+                    <span>Risk</span>
+                    <strong>Medium</strong>
                 </div>
 
                 <div>
-                    LEAST
-                    <strong>6</strong>
+                    <span>Time</span>
+                    <strong>5 min</strong>
                 </div>
 
             </div>
 
 
             <button
-                class="signal-button"
-                onclick="loadSignal('Volatility 50 (1s)')"
+                class="signal-action"
+                onclick="showMessage('Signal selected — connect your broker before placing a real trade.')"
             >
-                ⚡ Load Odd Signal
+                View Signal
             </button>
 
-        </div>
+        </article>
 
 
         <!-- SIGNAL 2 -->
 
-        <div class="signal-card">
+        <article class="signal-card">
 
-            <div class="signal-top">
+            <div class="signal-header">
 
-                <span class="signal-number">
-                    #2
-                </span>
+                <div class="signal-market">
 
-                <span class="signal-down">
-                    ▼
-                </span>
+                    <div class="signal-icon">
+                        V75
+                    </div>
 
-            </div>
+                    <div>
+                        <strong>
+                            Volatility 75 (1s)
+                        </strong>
 
+                        <small>
+                            Synthetic Index
+                        </small>
+                    </div>
 
-            <div class="signal-name">
-                Volatility 75 (1s)
-            </div>
+                </div>
 
-
-            <div class="confidence">
-
-                <span>
-                    CONFIDENCE
-                </span>
-
-                <strong>
-                    29.3%
-                </strong>
-
-            </div>
-
-
-            <div class="confidence-bar">
-
-                <span style="width:29.3%;">
+                <span class="signal-badge buy">
+                    BUY
                 </span>
 
             </div>
 
 
-            <div class="signal-stats">
+            <div class="signal-main">
 
                 <div>
-                    UNDER 5 %
-                    <strong>56.7%</strong>
+
+                    <span class="label">
+                        CONFIDENCE
+                    </span>
+
+                    <strong class="confidence-number">
+                        74.3%
+                    </strong>
+
+                </div>
+
+
+                <div class="signal-arrow buy-arrow">
+                    ↑
+                </div>
+
+            </div>
+
+
+            <div class="confidence-track">
+
+                <span
+                    class="buy-track"
+                    style="width:74.3%"
+                ></span>
+
+            </div>
+
+
+            <div class="signal-details">
+
+                <div>
+                    <span>Entry</span>
+                    <strong>Buy</strong>
                 </div>
 
                 <div>
-                    MOST
-                    <strong>1</strong>
+                    <span>Risk</span>
+                    <strong>Low</strong>
                 </div>
 
                 <div>
-                    LEAST
-                    <strong>9</strong>
+                    <span>Time</span>
+                    <strong>10 min</strong>
                 </div>
 
             </div>
 
 
             <button
-                class="signal-button"
-                onclick="loadSignal('Volatility 75 (1s)')"
+                class="signal-action buy-action"
+                onclick="showMessage('Signal selected — connect your broker before placing a real trade.')"
             >
-                ⚡ Load Under 5 Signal
+                View Signal
             </button>
 
-        </div>
+        </article>
 
 
         <!-- SIGNAL 3 -->
 
-        <div class="signal-card">
+        <article class="signal-card">
 
-            <div class="signal-top">
+            <div class="signal-header">
 
-                <span class="signal-number">
-                    #3
-                </span>
+                <div class="signal-market">
 
-                <span class="signal-down">
-                    ▼
-                </span>
+                    <div class="signal-icon">
+                        V100
+                    </div>
 
-            </div>
+                    <div>
+                        <strong>
+                            Volatility 100 (1s)
+                        </strong>
 
+                        <small>
+                            Synthetic Index
+                        </small>
+                    </div>
 
-            <div class="signal-name">
-                Volatility 100 (1s)
-            </div>
+                </div>
 
-
-            <div class="confidence">
-
-                <span>
-                    CONFIDENCE
-                </span>
-
-                <strong>
-                    64.8%
-                </strong>
-
-            </div>
-
-
-            <div class="confidence-bar">
-
-                <span style="width:64.8%;">
+                <span class="signal-badge sell">
+                    SELL
                 </span>
 
             </div>
 
 
-            <div class="signal-stats">
+            <div class="signal-main">
 
                 <div>
-                    ODD %
-                    <strong>61.4%</strong>
+
+                    <span class="label">
+                        CONFIDENCE
+                    </span>
+
+                    <strong class="confidence-number">
+                        68.9%
+                    </strong>
+
+                </div>
+
+
+                <div class="signal-arrow">
+                    ↓
+                </div>
+
+            </div>
+
+
+            <div class="confidence-track">
+
+                <span style="width:68.9%"></span>
+
+            </div>
+
+
+            <div class="signal-details">
+
+                <div>
+                    <span>Entry</span>
+                    <strong>Sell</strong>
                 </div>
 
                 <div>
-                    MOST
-                    <strong>5</strong>
+                    <span>Risk</span>
+                    <strong>Medium</strong>
                 </div>
 
                 <div>
-                    LEAST
-                    <strong>2</strong>
+                    <span>Time</span>
+                    <strong>5 min</strong>
                 </div>
 
             </div>
 
 
             <button
-                class="signal-button"
-                onclick="loadSignal('Volatility 100 (1s)')"
+                class="signal-action"
+                onclick="showMessage('Signal selected — connect your broker before placing a real trade.')"
             >
-                ⚡ Load Signal
+                View Signal
             </button>
 
-        </div>
+        </article>
 
-    </div>
-
-</section>
+    </section>
 
 
-<!-- =========================
-     MARKETS
-========================= -->
+    <!-- ================= BOTS ================= -->
 
-<section
-    class="market"
-    id="markets"
->
+    <section
+        class="section"
+        id="bots"
+    >
 
-    <h2>
-        Live Markets
-    </h2>
+        <div class="section-title">
 
+            <div>
 
-    <div class="market-grid">
+                <span>AUTOMATION</span>
 
-        <div class="card">
+                <h2>Trading Bots</h2>
 
-            <h3>
-                💰 BTC/USD
-            </h3>
-
-            <p>
-                Bitcoin / US Dollar
-            </p>
-
-            <br>
-
-            <strong class="up">
-                ▲ +2.41%
-            </strong>
-
-        </div>
-
-
-        <div class="card">
-
-            <h3>
-                💵 EUR/USD
-            </h3>
-
-            <p>
-                Euro / US Dollar
-            </p>
-
-            <br>
-
-            <strong class="down">
-                ▼ -0.52%
-            </strong>
-
-        </div>
-
-
-        <div class="card">
-
-            <h3>
-                🥇 GOLD
-            </h3>
-
-            <p>
-                Gold / US Dollar
-            </p>
-
-            <br>
-
-            <strong class="up">
-                ▲ +1.12%
-            </strong>
-
-        </div>
-
-    </div>
-
-</section>
-
-
-<!-- =========================
-     EDUCATION
-========================= -->
-
-<section
-    class="market"
-    id="education"
->
-
-    <h2>
-        Trading Education
-    </h2>
-
-    <div class="market-grid">
-
-        <div class="card">
-
-            <div style="font-size:40px;">
-                📚
             </div>
 
-            <h3>
-                Forex Basics
-            </h3>
-
-            <p>
-                Learn the fundamentals
-                of forex trading.
-            </p>
-
         </div>
 
 
-        <div class="card">
+        <div class="bot-grid">
 
-            <div style="font-size:40px;">
-                📊
+
+            <div class="bot-card">
+
+                <div class="bot-top">
+
+                    <div class="bot-icon">
+                        ⚡
+                    </div>
+
+                    <span class="online">
+                        ● ACTIVE
+                    </span>
+
+                </div>
+
+                <h3>
+                    Speed Trader
+                </h3>
+
+                <p>
+                    Fast market monitoring
+                    strategy.
+                </p>
+
+                <div class="bot-stats">
+
+                    <div>
+                        <span>Win Rate</span>
+                        <strong>81%</strong>
+                    </div>
+
+                    <div>
+                        <span>Trades</span>
+                        <strong>124</strong>
+                    </div>
+
+                </div>
+
+                <button
+                    onclick="showMessage('Bot dashboard coming soon')"
+                >
+                    Open Bot
+                </button>
+
             </div>
 
-            <h3>
-                Technical Analysis
-            </h3>
 
-            <p>
-                Learn how traders analyze
-                price movements.
-            </p>
+            <div class="bot-card">
 
-        </div>
+                <div class="bot-top">
 
+                    <div class="bot-icon">
+                        🧠
+                    </div>
 
-        <div class="card">
+                    <span class="premium">
+                        PREMIUM
+                    </span>
 
-            <div style="font-size:40px;">
-                🧠
+                </div>
+
+                <h3>
+                    Smart Trend
+                </h3>
+
+                <p>
+                    Trend-following strategy
+                    for experienced traders.
+                </p>
+
+                <div class="bot-stats">
+
+                    <div>
+                        <span>Win Rate</span>
+                        <strong>76%</strong>
+                    </div>
+
+                    <div>
+                        <span>Trades</span>
+                        <strong>89</strong>
+                    </div>
+
+                </div>
+
+                <button
+                    onclick="showMessage('Premium bot preview')"
+                >
+                    View Bot
+                </button>
+
             </div>
 
-            <h3>
-                Risk Management
-            </h3>
-
-            <p>
-                Understand position sizing
-                and trading risk.
-            </p>
-
         </div>
 
-    </div>
-
-</section>
+    </section>
 
 
-<!-- =========================
-     FOOTER
-========================= -->
+    <!-- ================= RISK NOTICE ================= -->
 
-<footer>
+    <section class="risk-notice">
 
-    <h3>
-        TradeFlow
-    </h3>
+        <strong>⚠ Trading Risk</strong>
 
-    <p>
-        Modern tools for smarter trading.
-    </p>
+        <p>
+            Trading involves risk and losses can occur.
+            TradeFlow signals and tools are for
+            informational and educational purposes and
+            do not guarantee profits.
+        </p>
 
-    <br>
+    </section>
 
-    <p>
-        © 2026 TradeFlow. All rights reserved.
-    </p>
-
-</footer>
+</main>
 
 
-<!-- =========================
-     JAVASCRIPT
-========================= -->
+<!-- ================= MOBILE NAV ================= -->
+
+<nav class="bottom-nav">
+
+    <button
+        class="active"
+        onclick="scrollToTop()"
+    >
+        <span>⌂</span>
+        Home
+    </button>
+
+    <button
+        onclick="scrollToSection('markets')"
+    >
+        <span>▥</span>
+        Markets
+    </button>
+
+    <button
+        onclick="scrollToSection('signals')"
+    >
+        <span>◈</span>
+        Signals
+    </button>
+
+    <button
+        onclick="scrollToSection('bots')"
+    >
+        <span>♙</span>
+        Bots
+    </button>
+
+    <button
+        onclick="showMessage('Profile coming soon')"
+    >
+        <span>●</span>
+        Profile
+    </button>
+
+</nav>
+
+
+<!-- ================= JAVASCRIPT ================= -->
 
 <script>
 
-function scrollToDashboard() {
+function scrollToSection(id) {
 
-    document
-        .getElementById("dashboard")
-        .scrollIntoView({
-            behavior: "smooth"
+    const section = document.getElementById(id);
+
+    if (section) {
+
+        section.scrollIntoView({
+            behavior: "smooth",
+            block: "start"
         });
+
+    }
 
 }
 
 
-function scrollToMarkets() {
+function scrollToTop() {
 
-    document
-        .getElementById("markets")
-        .scrollIntoView({
-            behavior: "smooth"
-        });
+    window.scrollTo({
+        top: 0,
+        behavior: "smooth"
+    });
 
 }
 
 
-function loadSignal(signalName) {
+function showMessage(message) {
 
-    alert(
-        "TradeFlow Signal Loaded: " +
-        signalName
-    );
+    alert(message);
 
 }
 
 </script>
 
-
 </body>
-                </html>
+                    </html>
